@@ -30,9 +30,18 @@ class LoginController extends Controller
         if (Auth::attempt([
             'email' => $request->input('email'),
             'password' => $request->input('password')
+            ,'level' => 'admin' //neu them vao database truong level neu level = 1 redirect toi giao dien admin nguoc lai redirect giao dien kh
         ], $request->input('remember') )){
             return redirect()->route('admin');
         }
+        else if (Auth::attempt([
+            'email' => $request->input('email'),
+            'password' => $request->input('password')
+            ,'level' => 'khachhang' //neu them vao database truong level neu level = 1 redirect toi giao dien admin nguoc lai redirect giao dien kh
+        ], $request->input('remember') )){
+            return redirect()->route('kh');
+        }
+
         //hien thi thong bao login
         Session::flash('error', 'Email hoặc Password không đúng vui lòng nhập lại!');
         return redirect()->back();
