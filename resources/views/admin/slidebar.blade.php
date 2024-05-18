@@ -39,6 +39,16 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
+                    <a href="admin/" class="nav-link">
+                        <i class="fa-solid fa-table-columns"></i>
+                        &nbsp;
+                        <p>
+                            DashBoard
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-folder-open"></i>
                         &nbsp;

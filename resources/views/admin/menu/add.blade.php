@@ -6,6 +6,11 @@
 
 @section('content')
     <!-- form start -->
+    <form action="/admin/menus/list" method="get">
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Danh Sach Danh Mục</button>
+        </div>
+    </form>
     <form action="" method="POST">
         <div class="card-body">
             <div class="form-group">

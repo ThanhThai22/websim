@@ -9,15 +9,13 @@
 @endif
 
 @if (Session::has('error'))
-    <div class="alert alert-danger">
-        {{ Session::get('error') }}
-
-    </div>
+    <script>
+        swal("Bad error!", "{{ Session::get('error') }}!", "error");
+    </script>
 @endif
 
 @if (Session::has('success'))
-    <div class="alert alert-success">
-        {{ Session::get('success') }}
-
-    </div>
+    <script>
+        swal("Complete!", "{{ Session::get('success') }}!", "success");
+    </script>
 @endif

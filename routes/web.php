@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\MenuController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('admin/users/login', [LoginController::class, 'index'])->name('login'); //trang login co middleware
@@ -42,15 +42,15 @@ Route::middleware(['auth'])->group(function () {
         //     Route::DELETE('destroy', [ProductController::class, 'destroy']); //xoa san pham
         // });
 
-        // #slider
-        // Route::prefix('sliders')->group(function () {
-        //     Route::get('add', [SliderController::class, 'create']);
-        //     Route::post('add', [SliderController::class, 'store']);
-        //     Route::get('list', [SliderController::class, 'index']); //danh sach slider
-        //     Route::get('edit/{slider}', [SliderController::class, 'show']); //chinh sua danh muc san pham theo id
-        //     Route::post('edit/{slider}', [SliderController::class, 'update']); //post thong tin da chinh sua
-        //     Route::DELETE('destroy', [SliderController::class, 'destroy']); //xoa san pham
-        // });
+        #slider
+        Route::prefix('sliders')->group(function () {
+            Route::get('add', [SliderController::class, 'create']);
+            Route::post('add', [SliderController::class, 'store']);
+            Route::get('list', [SliderController::class, 'index']); //danh sach slider
+            Route::get('edit/{slider}', [SliderController::class, 'show']); //chinh sua danh muc san pham theo id
+            Route::post('edit/{slider}', [SliderController::class, 'update']); //post thong tin da chinh sua
+            Route::DELETE('destroy', [SliderController::class, 'destroy']); //xoa san pham
+        });
 
         // #upload img
         // Route::post('upload/services', [UploadController::class, 'store']);
