@@ -49,7 +49,12 @@
                         <!-- /.col -->
                     </div>
                     <div class="row">
-                        <a href="/register">Register now</a>
+                        <div class="col-8">
+                            <a href="/register">Register now</a>
+                        </div>
+                        <div class="col-4">
+                            <a href="/">Website <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </div>
                     @csrf
                 </form>

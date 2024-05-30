@@ -21,7 +21,7 @@
                         <input type="text" name="name" class="form-control" placeholder="Name">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <i class="fa-solid fa-user"></i>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                         <input type="number" name="phone" class="form-control" placeholder="Phone">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <i class="fa-solid fa-phone"></i>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <input type="text" name="address" class="form-control" placeholder="Address">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <i class="fa-solid fa-location-dot"></i>
                             </div>
                         </div>
                     </div>

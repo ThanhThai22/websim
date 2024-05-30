@@ -14,6 +14,7 @@
                 <!-- Menu desktop -->
                 <div class="menu-desktop">
                     <ul class="main-menu">
+
                         <li class="active-menu"><a href="/">Trang Chủ</a> </li>
 
                         {!! $menusHtml !!}
@@ -34,12 +35,14 @@
                         data-notify="{{ !is_null(\Session::get('carts')) ? count(\Session::get('carts')) : 0 }}">
                         <i class="zmdi zmdi-shopping-cart"></i>
                     </div>
-
                     <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11">
                         <a href="admin/users/login"><i class="fa-regular fa-user"></i></a> &nbsp;
-                        {{ Auth::user()->name }}
-
                     </div>
+
+                    @auth
+                        {{ Auth::user()->name }}
+                    @endauth
+
                 </div>
                 <a href="{{ route('logout') }}">Logout</a>
             </nav>
