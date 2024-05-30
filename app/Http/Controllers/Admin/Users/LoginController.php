@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\User;
+use App\Models\Customer;
+use Hash;
 
 
 class LoginController extends Controller
@@ -32,14 +35,18 @@ class LoginController extends Controller
             'password' => $request->input('password')
             ,'level' => 'admin' //neu them vao database truong level neu level = 1 redirect toi giao dien admin nguoc lai redirect giao dien kh
         ], $request->input('remember') )){
+            Session::flash('success', 'Đăng nhập tài khoản quản trị thành công');
+
             return redirect()->route('admin');
         }
-        else if (Auth::attempt([
+
+        if(Auth::attempt([
             'email' => $request->input('email'),
             'password' => $request->input('password')
-            ,'level' => 'khachhang' //neu them vao database truong level neu level = 1 redirect toi giao dien admin nguoc lai redirect giao dien kh
+            ,'level' => 'customer' //neu them vao database truong level neu level = 1 redirect toi giao dien admin nguoc lai redirect giao dien kh
         ], $request->input('remember') )){
-            return redirect()->route('kh');
+            Session::flash('success', 'Đăng nhập tài khoản thành công');
+            return redirect()->route('index');
         }
 
         //hien thi thong bao login
@@ -47,4 +54,32 @@ class LoginController extends Controller
         return redirect()->back();
 
     }
+
+    public function indexRegister()
+    {
+        return view('admin.users.register',[
+            'title' => 'Register Account VNPT',
+        ]);
+    }
+
+    public function registerPost(Request $req)
+    {
+        $req->merge(['password' => Hash::make($req->password)]);
+        try {
+            User::create($req->all());
+            Session::flash('success', 'Đăng ký tài khoản thành công :)');
+            return \redirect()->route('login');
+        } catch (\Throwable $th) {
+            Session::flash('error', 'Đăng ký tài khoản thất bại :('. $th->getMessage());
+        }
+        return \redirect()->back();
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return \redirect()->back();
+    }
+
+
 }

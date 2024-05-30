@@ -16,6 +16,7 @@
             </div>
             <div class="info">
                 <a href="#" class="d-block">Trang Quản Trị ADMIN</a>
+
             </div>
         </div>
 
@@ -39,7 +40,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="admin/" class="nav-link">
+                    <a href="/admin/" class="nav-link">
                         <i class="fa-solid fa-table-columns"></i>
                         &nbsp;
                         <p>

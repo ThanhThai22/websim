@@ -8,14 +8,14 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <a href="../../index2.html"><b>VNPT</b>Login</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
-
+                <p class="login-box-msg">Sign in to start your journey in vnpt</p>
                 @include('admin.alert')
+
                 <form action="/admin/users/login/store" method="post">
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control" placeholder="Email">
@@ -48,9 +48,11 @@
                         </div>
                         <!-- /.col -->
                     </div>
+                    <div class="row">
+                        <a href="/register">Register now</a>
+                    </div>
                     @csrf
                 </form>
-
                 {{-- <div class="social-auth-links text-center mb-3">
         <p>- OR -</p>
         <a href="#" class="btn btn-block btn-primary">

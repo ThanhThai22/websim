@@ -17,7 +17,8 @@ class Menu extends Model
         'active'
     ];
 
-    // public function products(){
-    //     return $this->hasMany(Product::class, 'menu_id', 'id');
-    // }
+    //Menu co chua nhieu san pham
+    public function products(){
+        return $this->hasMany(Product::class, 'menu_id', 'id');
+    }
 }
